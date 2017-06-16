@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏滑块</title>
+	<style>
+	html, body, ul{
+		padding: 0;
+		margin: 0;
+	}
+	
+	nav{
+		margin: 50px auto;
+		width: 400px;
+		height: 60px;
+		position: relative;
+		border: 1px solid #000;
+	}
+	
+	nav ul{
+		height: 50px;
+		position: absolute;
+	}
+	
+	nav ul li{
+		list-style: none;
+		float: left;
+		margin: 0 10px;
+	}
+	
+	a{	
+		display: block;
+		text-decoration: none;
+		color: #000;
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+	}
+	
+	a.active{
+		color: blue;
+	}
+
+	nav .slide{
+		background-color: red;
+		height: 10px;
+		position: relative;
+		top: 50px;
+	}
+	
+	nav .slide .slide-bar{
+		background-color: blue;
+		height: 10px;
+		position: absolute;
+	}
+
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="#" class="active">好友</a></li>
+			<li><a href="#">群</a></li>
+			<li><a href="#">多人聊天</a></li>
+			<li><a href="#">设备</a></li>
+			<li><a href="#">通讯录</a></li>
+			<li><a href="#">公众号</a></li>
+		</ul>
+		<div class="slide">
+			<div class="slide-bar"></div>
+		</div>
+	</nav>
+	<script>
+
+	window.onload = function () {
+
+		var last;
+		var list = document.getElementsByTagName('a');
+		var bar = document.getElementsByClassName('slide-bar')[0];
+
+		for(var i=0; i<list.length; i++) {	
+			// 加载完成后，初始化滑块的位置与宽度
+			if(list[i].className.indexOf('active') !== -1) {
+				bar.style.width = list[i].clientWidth + 'px';
+				bar.style.left = list[i].offsetLeft + 'px';
+				last = list[i];
+			}
+			list[i].onclick = function () {
+				last.className = null;
+				this.className = 'active';
+				move(bar, this);
+				last = this;
+			}
+		}
+	}
+
+	// move函数，处理滑块水平移动的逻辑
+	// element 滑动元素
+	// destination 终点
+
+	function move(element, destination) {
+		
+		// 起止位置
+		var pos1 = element.offsetLeft;
+		var pos2 = destination.offsetLeft;
+
+		// 起止滑块宽度
+		var w1 = element.clientWidth;
+		var w2 = destination.clientWidth;
+		
+		element.style.width = parseInt(element.style.width) + w2 - w1 + 'px';
+
+		var step = parseInt((pos2 - pos1)/5);
+		var timer = setInterval(function () {
+			element.style.left = parseInt(getStyle(element, 'left')) + step + 'px';
+			if (Math.abs(pos2- parseInt(element.style.left)) < Math.abs(step)) {
+				element.style.left = pos2 + 'px';
+				clearInterval(timer);
+			}
+		} , 10);
+	}
+
+	function getStyle(obj, name) {
+		return obj.currentStyle ? obj.currentStyle[name] : getComputedStyle(obj, false)[name];
+	}
+
+	</script>
+</body>
+</html>

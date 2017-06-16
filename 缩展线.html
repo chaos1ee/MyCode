@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .cube {
+    width: 200px;
+    height: 200px;
+    background: red;
+    position: relative;
+  }
+  .cube:after{
+    content: '';
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    bottom: -10px;
+    left: 99px;
+    visibility: hidden;
+    background: blue;
+    transition: 0.8s;
+  }
+  .cube:hover:after{
+    visibility: visible;
+    transform: scaleX(100);
+  }
+
+  .cube2 {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    background: red;
+    position: relative;
+  }
+
+  .cube2:after{
+    content: '';
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    visibility: hidden;
+    background: blue;
+    transition: 0.8s;
+  }
+  .cube2:hover:after{
+    visibility: visible;
+    transform: scaleX(100);
+    transform-origin: left top;
+  }
+  </style>
+</head>
+<body>
+  <div class="cube"></div>
+  <div class="cube2"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+  body, ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  #box {
+    width: 300px;
+    font: 14px/1.5;
+    margin: 10% auto;
+  }
+
+  #box .tabs {
+    margin-bottom: -1px;
+    border: 1px solid #000;
+    border-bottom: none;
+    background:#EAF0FD;
+  }
+
+  #box .tabs ul {
+    height: 50px;
+    *zoom: 1;
+    overflow: hidden;
+  }
+  /* 设置负margin可以将元素朝着某个方向位移 */
+  .tabs ul li{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding:0 10px;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    margin-left: -1px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .tabs ul li.active {
+    position: relative; /*兼容IE*/
+    background: #fff;
+  }  
+
+  .content {
+    border: 1px solid #000;
+  }
+
+  .content .wrapper {
+    padding: 5px;
+  }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div class="tabs">
+      <ul>
+        <li class="active">电影</li><li>相声</li><li>电视剧</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="wrapper">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus velit impedit blanditiis, architecto optio aliquam atque, temporibus vel suscipit voluptates recusandae sed accusamus voluptas eveniet, quaerat ut! Unde, officiis, at.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

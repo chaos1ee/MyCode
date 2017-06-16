@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">	
+
+		ul{
+			list-style: none;
+			margin: 100px auto;
+			padding: 0;
+			width: 500px;
+			height: 28px;
+
+		}
+		
+		li{
+			float: left;
+			margin-right: 30px;
+			background: grey;
+			border-radius: 50%;
+			text-align: center;
+			position: relative;
+		}
+		
+		li:after{
+			content: "";
+			width: 30px;
+			height: 2px;
+			background: #000;
+			position: absolute;
+		}
+
+		li:nth-child(1){
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			margin-top: 4px;
+		}
+		
+		li:nth-child(1):after{
+			left: 20px;
+			top: 10px;	
+		}
+		
+		li:nth-child(2){
+			width: 22px;
+			height: 22px;
+			line-height: 22px;
+			margin-top: 3px;
+
+		}
+		
+		li:nth-child(2):after{
+			left: 22px;
+			top: 11px;	
+		}
+
+		li:nth-child(3){
+			width: 24px;
+			height: 24px;
+			line-height: 24px;
+			margin-top: 2px;
+		}
+		
+		li:nth-child(3):after{
+			left: 24px;
+			top: 12px;	
+		}
+
+		li:nth-child(4){
+			width: 26px;
+			height: 26px;
+			line-height: 26px;
+			margin-top: 1px;
+
+		}
+		
+		li:nth-child(4):after{
+			left: 26px;
+			top: 13px;	
+		}
+
+		li:nth-child(5){
+			width: 28px;
+			height: 28px;
+			line-height: 28px;
+			margin-top: 0px;
+		}
+		
+		li:nth-child(5):after{
+			display: none;	
+		}
+
+		li:hover{
+			background: red;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

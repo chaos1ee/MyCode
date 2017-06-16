@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * base: 基数
+     * precision: 精度
+     */
+    function roundTo(base, precision) {
+      var m = Math.pow(10, precision);
+      var result = Math.round(base * m) / m;
+      return result;
+    }
+  </script>
+</body>
+
+</html>

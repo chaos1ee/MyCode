@@ -13,12 +13,12 @@
 ##### scale.html
 CSS动画
 
-![scale.html](image\scale.gif)
+![scale.html](image/scale.gif)
 
 ##### pseudo.html
 CSS伪元素
 
-![scale.html](image\pseudo.png)
+![scale.html](image/pseudo.png)
 
 ##### validator.js
 Angular1表单校验类，策略模式。

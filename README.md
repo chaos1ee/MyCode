@@ -1,4 +1,4 @@
-整理平时自己写的一些好玩的小demo。
+## 整理一些自己平时写的小demo。
 
 ##### navigator.html
 导航条动画
@@ -26,10 +26,10 @@ CSS伪元素
 ![scale.html](image/pseudo.png)
 
 ##### validator.js
-Angular1表单校验类，策略模式。
+Angular1表单校验类，策略模式
 
 ##### currying.js
-函数柯里化。
+函数柯里化
 
 ##### subscribe.js
 订阅者模式

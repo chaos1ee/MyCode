@@ -15,6 +15,11 @@ CSS动画
 
 ![scale.html](image/scale.gif)
 
+##### vueRenderFunction.html
+Vue Render函数
+
+![scale.html](image/render.png)
+
 ##### pseudo.html
 CSS伪元素
 

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>导航栏滑块</title>
+		<style>
+			html,
+			body,
+			ul {
+				padding: 0;
+				margin: 0;
+			}
+
+			.nav {
+				margin: 50px auto;
+				width: 360px;
+				height: 60px;
+				position: relative;
+				border: 1px solid #000;
+			}
+
+			.nav ul {
+				height: 50px;
+				position: absolute;
+			}
+
+			.nav ul li {
+				list-style: none;
+				float: left;
+				margin: 0 10px;
+			}
+
+			.nav li a {
+				display: block;
+				text-decoration: none;
+				color: #000;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+			}
+
+			.nav li a.active {
+				color: #FF8C00;
+			}
+
+			.nav .slide {
+				background-color: #FFD700;
+				height: 10px;
+				position: relative;
+				top: 50px;
+			}
+
+			.nav .slide .slide-bar {
+				position: absolute;
+				left: 0;
+				width: 0;
+				height: 10px;
+				background-color: #FF8C00;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="javascript:void(0);" class="slide-item active">好友</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="slide-item">群</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="slide-item">多人聊天</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="slide-item">设备</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="slide-item">通讯录</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="slide-item">公众号</a>
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			window.onload = function () {
+
+				// 缓存所有items的宽度
+				var items = document.querySelectorAll('.slide-item');
+				items = [].slice.call(items);
+
+				var widthValues = [];
+				var leftValues = [];
+
+				// 计算所有选项的左偏移与宽度并缓存。
+				for (var i = 0; i < items.length; i++) {
+					var width = parseInt(getStyle(items[i]).width);
+					var left = items[i].offsetLeft;
+					widthValues.push(width);
+					leftValues.push(left);
+				}
+
+
+				var nav = document.querySelector('.nav');
+
+				// 插入滑块
+				var last = 0;
+
+				var slide = document.createElement('div');
+				var bar = document.createElement('div');
+				slide.classList.add('slide');
+				bar.classList.add('slide-bar');
+				slide.appendChild(bar);
+				nav.appendChild(slide);
+				bar.style.left = leftValues[last] + 'px';
+				bar.style.width = widthValues[last] + 'px';
+
+				nav.addEventListener('mouseover', function (e) {
+					var target = e.target || e.srcElement;
+					if (items.indexOf(target) > -1) {
+						var index = items.indexOf(target);
+						var leftFrom = leftValues[last];
+						var leftTo = leftValues[index];
+						var widthFrom = widthValues[last];
+						var widthTo = widthValues[index];
+						move(bar, 'left', leftFrom, leftTo);
+						move(bar, 'width', widthFrom, widthTo);
+						items[last].classList.remove('active');
+						target.classList.add('active');
+						last = index;
+					}
+				});
+			}
+
+
+			function move(elem, attr, from, to) {
+				if (from == to) return;
+				var step = (to - from) / 5;
+				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+				var timer;
+
+				function _move() {
+					timer = window.requestAnimationFrame(_move);
+					if (Math.abs(to - from) > Math.abs(step)) {
+						from += step;
+						elem.style[attr] = from + 'px';
+					} else {
+						elem.style[attr] = to + 'px';
+						window.cancelAnimationFrame(timer);
+					}				
+				}
+				_move();
+
+				// var timer = window.setInterval(function () {
+				// 	if (Math.abs(to - from) > Math.abs(step)) {
+				// 		from += step;
+				// 		elem.style.left = from + 'px';
+				// 	} else {
+				// 		elem.style.left = to + 'px';
+				// 		window.clearInterval(timer);
+				// 	}
+				// }, 18);
+			}
+
+			function getStyle(elem) {
+				return elem.currentStyle ? elem.currentStyle : getComputedStyle(elem, false);
+			}
+
+		</script>
+	</body>
+
+</html>

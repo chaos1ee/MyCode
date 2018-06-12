@@ -44,14 +44,14 @@
 				color: #FF8C00;
 			}
 
-			.nav .slide {
+			.nav .track {
 				background-color: #FFD700;
 				height: 10px;
 				position: relative;
 				top: 50px;
 			}
 
-			.nav .slide .slide-bar {
+			.nav .track .slide-bar {
 				position: absolute;
 				left: 0;
 				width: 0;
@@ -91,58 +91,55 @@
 
 				// 缓存所有items的宽度
 				var items = document.querySelectorAll('.slide-item');
-				items = [].slice.call(items);
+				items = Array.prototype.slice.call(items);
 
 				var widthValues = [];
-				var leftValues = [];
+				var offsetLefts = [];
 
 				// 计算所有选项的左偏移与宽度并缓存。
 				for (var i = 0; i < items.length; i++) {
 					var width = parseInt(getStyle(items[i]).width);
 					var left = items[i].offsetLeft;
 					widthValues.push(width);
-					leftValues.push(left);
+					offsetLefts.push(left);
 				}
-
-
-				var nav = document.querySelector('.nav');
 
 				// 插入滑块
 				var last = 0;
-
-				var slide = document.createElement('div');
+				var nav = document.querySelector('.nav');
+				var track = document.createElement('div');
 				var bar = document.createElement('div');
-				slide.classList.add('slide');
+				track.classList.add('track');
 				bar.classList.add('slide-bar');
-				slide.appendChild(bar);
-				nav.appendChild(slide);
-				bar.style.left = leftValues[last] + 'px';
-				bar.style.width = widthValues[last] + 'px';
+				track.appendChild(bar);
+				nav.appendChild(track);
+
+				move(bar, 'left', 0, offsetLefts[last]);
+				move(bar, 'width', 0, widthValues[last]);
 
 				nav.addEventListener('mouseover', function (e) {
 					var target = e.target || e.srcElement;
-					if (items.indexOf(target) > -1) {
-						var index = items.indexOf(target);
-						var leftFrom = leftValues[last];
-						var leftTo = leftValues[index];
-						var widthFrom = widthValues[last];
-						var widthTo = widthValues[index];
-						move(bar, 'left', leftFrom, leftTo);
-						move(bar, 'width', widthFrom, widthTo);
+					var index = items.indexOf(target);
+					if (index === last) return;
+
+					if (index > -1) {
+						move(bar, 'left', offsetLefts[last], offsetLefts[index]);
+						move(bar, 'width', widthValues[last], widthValues[index]);
 						items[last].classList.remove('active');
 						target.classList.add('active');
 						last = index;
 					}
 				});
-			}
+			}		
 
-
+			// 将attr的值从from转化为to，attr必须是以‘px’为单位的属性
 			function move(elem, attr, from, to) {
 				if (from == to) return;
-				var step = (to - from) / 5;
-				step = step > 0 ? Math.ceil(step) : Math.floor(step);
-				var timer;
 
+				var step = (to - from) / 10;
+				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+				
+				var timer;
 				function _move() {
 					timer = window.requestAnimationFrame(_move);
 					if (Math.abs(to - from) > Math.abs(step)) {
@@ -151,19 +148,9 @@
 					} else {
 						elem.style[attr] = to + 'px';
 						window.cancelAnimationFrame(timer);
-					}				
+					}
 				}
-				_move();
-
-				// var timer = window.setInterval(function () {
-				// 	if (Math.abs(to - from) > Math.abs(step)) {
-				// 		from += step;
-				// 		elem.style.left = from + 'px';
-				// 	} else {
-				// 		elem.style.left = to + 'px';
-				// 		window.clearInterval(timer);
-				// 	}
-				// }, 18);
+				_move.call(null);
 			}
 
 			function getStyle(elem) {

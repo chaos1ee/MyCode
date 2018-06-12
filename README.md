@@ -1,8 +1,9 @@
-自己写的一些好玩的小demo。
+整理平时自己写的一些好玩的小demo。
 
 ##### navigator.html
 导航条动画
 
+![ball.html](image/navigator.gif)
 
 ##### ball.html
 面向对象与JS动画

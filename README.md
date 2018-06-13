@@ -1,4 +1,4 @@
-## 整理一些自己平时写的小demo。
+## 整理一些自己平时写的小demo
 
 ##### navigator.html
 导航条动画
@@ -40,3 +40,5 @@ Angular1表单校验类，策略模式
 ##### negativeMargin.html
 负margin的应用
 
+##### bind.js
+特性检测、惰性载入

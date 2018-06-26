@@ -1,5 +1,44 @@
 ## 整理一些自己平时写的小demo
 
+##### 格式化数字
+
+```javascript
+function format(num) {
+  var arr = (num + '').split('').reverse();
+  var i = 0;
+
+  while (arr.length - i > 3) {
+    i += 3;
+    arr.splice(i++, 0, ',');
+  }
+
+  return arr.reverse().join('');
+}
+
+console.log(format(123)); // 123
+console.log(format(1234567890)); // 1,234,567,890
+```
+
+##### 扩展console.log
+
+扩展console.log，使输出满足如下形式。
+
+```javascript
+console.log = (function() {
+  var n = 1;
+  var _log = console.log;
+  return function() {
+    var arg = Array.prototype.slice.call(arguments);
+    arg.unshift(n++ + ':');
+    _log.apply(null, arg);
+  }
+})();
+
+console.log('who'); // 1: who
+console.log('are'); // 2: are
+console.log('you'); // 3: you
+```
+
 ##### [navigator.html](./navigator.html)
 导航条动画
 

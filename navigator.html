@@ -155,7 +155,7 @@
 			}
 
 			function getStyle(elem) {
-				return elem.currentStyle || getComputedStyle(elem, false);
+				return window.getComputedStyle(elem, null);
 			}
 
 		</script>

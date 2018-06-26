@@ -42,3 +42,6 @@ Angular1表单校验类，策略模式
 
 ##### bind.js
 特性检测、惰性载入
+
+##### [lazyload.html](./lazyload.html)
+简单的图片懒加载

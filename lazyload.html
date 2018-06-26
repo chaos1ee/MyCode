@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+  </head>
+
+  <body>
+    <p style="display: inline-block;">
+      <img class="lazy" width="500" height="500" src="./image/loading.gif" data-src="./image/lazyload.jpg">
+      <span>本地图片</span>
+    </p>
+
+    <p style="display: inline-block;">
+      <img class="lazy" width="500" height="500" src="./image/loading.gif" data-src="http://img.ivsky.com/img/tupian/pre/201611/11/guaiwu_daxue_donghua.jpg">
+      <span>网络图片</span>
+    </p>
+
+    <script>
+      window.onload = function () {
+        
+        // Lazyload类
+        function Lazyload(selector) {
+          var _slice = Array.prototype.slice;
+          this.list = _slice.call(document.querySelectorAll(selector));
+        };
+
+        Lazyload.prototype.load = function () {
+          var that = this;
+          if (this.list.length > 0) {
+            for (var i = 0, len = this.list.length; i < len; i++) {
+              (function (j) {
+                var imgElement = that.list[j];
+                var mediator = new Image();
+                var src = imgElement.getAttribute('data-src');
+
+                mediator.onload = function () {
+                  imgElement.src = src;
+                  mediator = null;
+                };
+
+                mediator.src = src;
+              })(i);
+            }
+          }
+        }
+
+        var lazyload = new Lazyload('.lazy');
+
+        lazyload.load();
+      }
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,4 +1,4 @@
-js<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -130,7 +130,7 @@ js<!DOCTYPE html>
 						last = index;
 					}
 				});
-			}		
+			}
 
 			// 将attr的值从from转化为to，attr必须是以‘px’为单位的属性
 			function move(elem, attr, from, to) {
@@ -138,8 +138,9 @@ js<!DOCTYPE html>
 
 				var step = (to - from) / 10;
 				step = step > 0 ? Math.ceil(step) : Math.floor(step);
-				
+
 				var timer;
+
 				function _move() {
 					timer = window.requestAnimationFrame(_move);
 					if (Math.abs(to - from) > Math.abs(step)) {
@@ -154,7 +155,7 @@ js<!DOCTYPE html>
 			}
 
 			function getStyle(elem) {
-				return elem.currentStyle ? elem.currentStyle : getComputedStyle(elem, false);
+				return elem.currentStyle || getComputedStyle(elem, false);
 			}
 
 		</script>

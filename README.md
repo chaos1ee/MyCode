@@ -86,37 +86,32 @@ console.log(f(1)(2)(3).value); // 14
 
 ##### [navigator.html](./navigator.html)
 导航条动画
-
 <center>
   <img src="image/navigator.gif" width="50%" height="50%">
 </center>
 
 ##### [ball.html](./ball.html)
 面向对象与JS动画
-
 <center>
   <img src="image/Animation.gif" width="50%" height="50%">
 </center>
 
 ##### [scale.html](./scale.html)
 CSS动画
-
 <center>
-  <img src="image/scale.gif" width="50%" height="50%">
+  <img src="image/scale.gif" width="20%" height="20%">
 </center>
 
 ##### [vueRenderFunction.html](./vueRenderFunction.html)
 Vue Render函数
-
 <center>
-  <img src="image/render.gif" width="50%" height="50%">
+  <img src="image/render.png" width="60%" height="60%">
 </center>
 
 ##### [pseudo.html](./pseudo.html)
 CSS伪元素
-
 <center>
-  <img src="image/pseudo.gif" width="50%" height="50%">
+  <img src="image/pseudo.png" width="50%" height="50%">
 </center>
 
 ##### [validator.js](./validator.js)

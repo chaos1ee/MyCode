@@ -87,27 +87,37 @@ console.log(f(1)(2)(3).value); // 14
 ##### [navigator.html](./navigator.html)
 导航条动画
 
-![ball.html](image/navigator.gif)
+<center>
+  <img src="image/navigator.gif" width="50%" height="50%">
+</center>
 
 ##### [ball.html](./ball.html)
 面向对象与JS动画
 
-![ball.html](image/Animation.gif)
+<center>
+  <img src="image/Animation.gif" width="50%" height="50%">
+</center>
 
 ##### [scale.html](./scale.html)
 CSS动画
 
-![scale.html](image/scale.gif)
+<center>
+  <img src="image/scale.gif" width="50%" height="50%">
+</center>
 
 ##### [vueRenderFunction.html](./vueRenderFunction.html)
 Vue Render函数
 
-![scale.html](image/render.png)
+<center>
+  <img src="image/render.gif" width="50%" height="50%">
+</center>
 
 ##### [pseudo.html](./pseudo.html)
 CSS伪元素
 
-![scale.html](image/pseudo.png)
+<center>
+  <img src="image/pseudo.gif" width="50%" height="50%">
+</center>
 
 ##### [validator.js](./validator.js)
 Angular1表单校验类，策略模式

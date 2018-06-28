@@ -1,0 +1,33 @@
+{
+  "name": "maybe-code",
+  "version": "1.0.1",
+  "description": "Little demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maybeeee/MyCode.git"
+  },
+  "keywords": [
+    "frontend",
+    "vue",
+    "nodejs",
+    "javscript"
+  ],
+  "author": "maybeeee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maybeeee/MyCode/issues"
+  },
+  "homepage": "https://github.com/maybeeee/MyCode#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-traverse": "^6.26.0",
+    "babylon": "^6.18.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}

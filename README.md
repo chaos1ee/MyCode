@@ -1,9 +1,24 @@
-## 整理一些自己平时写的小demo
+# 整理一些自己平时写的小demo
 
-##### [打包原理](./pack/pack.js)(Fork)
+## [打包原理](./pack/pack.js)(Fork)
 简易的打包工具实现。
 
-##### 格式化数字
+## 字符串截断
+```javascript
+function wordBreak(word, separator = '\n', n = 3) {
+  if(typeof word != 'string' || word.length <= n) return word;
+
+  let arr = word.split('')
+  let i = 0
+  while (arr.length - i > n) {
+    i += n
+    arr.splice(i++, 0, separator)
+  }
+  return arr.join('')
+}
+```
+
+## 格式化数字
 
 ```javascript
 function format(num) {
@@ -22,7 +37,7 @@ console.log(format(123)); // 123
 console.log(format(1234567890)); // 1,234,567,890
 ```
 
-##### 扩展console.log
+## 扩展console.log
 
 扩展console.log，使输出满足如下形式。
 
@@ -42,7 +57,7 @@ console.log('are'); // 2: are
 console.log('you'); // 3: you
 ```
 
-##### 闭包、getter
+## 闭包、getter
 
 编写函数f，使满足如下条件：
 
@@ -87,56 +102,56 @@ console.log(f(1)(2).value); // 5
 console.log(f(1)(2)(3).value); // 14
 ```
 
-##### [navigator.html](./navigator.html)
+## [navigator.html](./navigator.html)
 导航条动画
 <center>
   <img src="image/navigator.gif" width="50%" height="50%">
 </center>
 
-##### [ball.html](./ball.html)
+## [ball.html](./ball.html)
 面向对象与JS动画
 <center>
   <img src="image/Animation.gif" width="50%" height="50%">
 </center>
 
-##### [scale.html](./scale.html)
+## [scale.html](./scale.html)
 CSS动画
 <center>
   <img src="image/scale.gif" width="20%" height="20%">
 </center>
 
-##### [vueRenderFunction.html](./vueRenderFunction.html)
+## [vueRenderFunction.html](./vueRenderFunction.html)
 Vue Render函数
 <center>
   <img src="image/render.png" width="60%" height="60%">
 </center>
 
-##### [pseudo.html](./pseudo.html)
+## [pseudo.html](./pseudo.html)
 CSS伪元素
 <center>
   <img src="image/pseudo.png" width="50%" height="50%">
 </center>
 
-##### [validator.js](./validator.js)
+## [validator.js](./validator.js)
 Angular1表单校验类，策略模式
 
-##### [currying.js](./currying.js)
+## [currying.js](./currying.js)
 函数柯里化
 
-##### [subscribe.js](./subscribe.js)
+## [subscribe.js](./subscribe.js)
 订阅者模式
 
-##### [sport.js](./sport.js)
+## [sport.js](./sport.js)
 运动框架
 
-##### [negativeMargin.html](./negativeMargin.html)
+## [negativeMargin.html](./negativeMargin.html)
 负margin的应用
 
-##### [bind.js](./bind.js)
+## [bind.js](./bind.js)
 特性检测、惰性载入
 
-##### [lazyload.html](./lazyload.html)
+## [lazyload.html](./lazyload.html)
 简单的图片懒加载
 
-##### [binarySearch.js](./binarySearch.js)
+## [binarySearch.js](./binarySearch.js)
 二分法查找

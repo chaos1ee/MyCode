@@ -1,6 +1,6 @@
 # 整理一些自己平时写的小demo
 
-## [打包原理](./pack/pack.js)(Fork)
+## [打包原理](./pack/README.md)(Fork)
 简易的打包工具实现。
 
 ## 字符串截断

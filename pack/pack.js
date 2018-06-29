@@ -8,6 +8,7 @@ const {
 
 let ID = 0;
 
+// 读取文件，遍历依赖，递归。
 function createAsset(filename) {
   // 读取文件
   const content = fs.readFileSync(filename, 'utf-8');
@@ -64,6 +65,7 @@ function createGraph(entry) {
   return queue;
 }
 
+// 根据“依赖图”生成bundle
 function bundle(graph) {
   let modules = '';
 
@@ -96,7 +98,8 @@ function bundle(graph) {
   return result;
 }
 
-const graph = createGraph('./entry.js');
+// 打包测试
+const graph = createGraph('./example/entry.js');
 const result = bundle(graph);
 
 console.log(result);

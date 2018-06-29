@@ -6,7 +6,7 @@
 ## 字符串截断
 ```javascript
 function wordBreak(word, separator = '\n', n = 3) {
-  if(typeof word != 'string' || word.length <= n) return word;
+  if(typeof word != 'string' || word.length <= n) return word
 
   let arr = word.split('')
   let i = 0

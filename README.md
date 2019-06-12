@@ -3,59 +3,11 @@
 ## [打包原理](./pack/README.md)(Fork)
 简易的打包工具实现。
 
-## 字符串截断
-```javascript
-function wordBreak(word, separator = '\n', n = 3) {
-  if(typeof word != 'string' || word.length <= n) return word
-
-  let arr = word.split('')
-  let i = 0
-  while (arr.length - i > n) {
-    i += n
-    arr.splice(i++, 0, separator)
-  }
-  return arr.join('')
-}
-```
-
-## 格式化数字
-
-```javascript
-function format(num) {
-  var arr = (num + '').split('').reverse();
-  var i = 0;
-
-  while (arr.length - i > 3) {
-    i += 3;
-    arr.splice(i++, 0, ',');
-  }
-
-  return arr.reverse().join('');
-}
-
-console.log(format(123)); // 123
-console.log(format(1234567890)); // 1,234,567,890
-```
-
-## 扩展console.log
-
-扩展console.log，使输出满足如下形式。
-
-```javascript
-console.log = (function() {
-  var n = 1;
-  var _log = console.log;
-  return function() {
-    var arg = Array.prototype.slice.call(arguments);
-    arg.unshift(n++ + ':');
-    _log.apply(null, arg);
-  }
-})();
-
-console.log('who'); // 1: who
-console.log('are'); // 2: are
-console.log('you'); // 3: you
-```
+## [ball.html](./ball.html)
+面向对象与JS动画
+<center>
+  <img src="image/Animation.gif" width="50%" height="50%">
+</center>
 
 ## 闭包、getter
 
@@ -108,12 +60,6 @@ console.log(f(1)(2)(3).value); // 14
   <img src="image/navigator.gif" width="50%" height="50%">
 </center>
 
-## [ball.html](./ball.html)
-面向对象与JS动画
-<center>
-  <img src="image/Animation.gif" width="50%" height="50%">
-</center>
-
 ## [scale.html](./scale.html)
 CSS动画
 <center>
@@ -155,3 +101,58 @@ Angular1表单校验类，策略模式
 
 ## [binarySearch.js](./binarySearch.js)
 二分法查找
+
+## 扩展console.log
+
+扩展console.log，使输出满足如下形式。
+
+```javascript
+console.log = (function() {
+  var n = 1;
+  var _log = console.log;
+  return function() {
+    var arg = Array.prototype.slice.call(arguments);
+    arg.unshift(n++ + ':');
+    _log.apply(null, arg);
+  }
+})();
+
+console.log('who'); // 1: who
+console.log('are'); // 2: are
+console.log('you'); // 3: you
+```
+
+## 字符串截断
+```javascript
+function wordBreak(word, separator = '\n', n = 3) {
+  if(typeof word != 'string' || word.length <= n) return word
+
+  let arr = word.split('')
+  let i = 0
+  while (arr.length - i > n) {
+    i += n
+    arr.splice(i++, 0, separator)
+  }
+  return arr.join('')
+}
+```
+
+## 格式化数字
+
+```javascript
+function format(num) {
+  var arr = (num + '').split('').reverse();
+  var i = 0;
+
+  while (arr.length - i > 3) {
+    i += 3;
+    arr.splice(i++, 0, ',');
+  }
+
+  return arr.reverse().join('');
+}
+
+console.log(format(123)); // 123
+console.log(format(1234567890)); // 1,234,567,890
+```
+

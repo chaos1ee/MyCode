@@ -1,5 +1,44 @@
 # 整理一些自己平时写的小demo
 
+## 版本号排序
+```javascript
+function versionsSort(versions) {
+  const ret = versions.map(version => version.split("."));
+
+  for (let i = 0; i < ret.length - 1; i++) {
+    for (let j = i; j < ret.length; j++) {
+      if (compare(ret[i], ret[j])) {
+        [ret[i], ret[j]] = [ret[j], ret[i]];
+      }
+    }
+  }
+
+  return ret.map(item => item.join("."));
+}
+
+function compare(arr1, arr2) {
+  const minLen = Math.min(arr1.length, arr2.length);
+
+  let index = 0;
+
+  while (index <= minLen) {
+    if(arr1[index] !== arr2[index]) {
+      return +arr1[index] > +arr2[index];
+    } else {
+      if(index < minLen) {
+        index++;
+      } else {
+        return arr1.length < arr2.length;
+      }
+    }
+  }
+}
+
+const arr = ["1.7", "1.2.2", "2.3.3", "1.10", "2.4.1", "3.30.33.3", "1.1"];
+
+console.log(versionsSort(arr));
+```
+
 ## [打包原理](./pack/README.md)(Fork)
 简易的打包工具实现。
 

@@ -1,5 +1,19 @@
 # 整理一些自己平时写的小demo
 
+##
+```typescript
+const retryDelay = (count: number, delayTime: number) =>
+  retryWhen(errors =>
+    errors.pipe(
+      concatMap((err, index) =>
+        index < count
+          ? of(err).pipe(delay(delayTime))
+          : throwError(err),
+      ),
+    ),
+  );
+```
+
 ## 版本号排序
 ```javascript
 function versionsSort(versions) {

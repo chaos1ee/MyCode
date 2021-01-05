@@ -1,6 +1,7 @@
 # 整理一些自己平时写的小demo
 
-##
+## rxjs延迟重试
+
 ```typescript
 const retryDelay = (count: number, delayTime: number) =>
   retryWhen(errors =>
